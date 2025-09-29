@@ -1,0 +1,553 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    user-select: none;
+    list-style: none;
+}
+:root{
+    --white: #fff;
+    --gray1: #333;
+    --gray2: #666;
+    --gray3: #999;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: #4b4b4b;
+}
+
+#title{
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#content{
+    width: 1280px;
+    height: 832px;
+    outline: 20px solid var(--gray1);
+    position: relative;
+    overflow: hidden;
+    background-color: #4b4b4b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.removeRect{
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background-color: #ececec;
+    z-index: 500;
+    opacity: 0;
+}
+.removeRect1{
+    top: 0;
+    left: 0;
+}
+.removeRect2{
+    bottom: 0;
+    left: 0;
+}
+.removeRect.play{
+    display: none;
+}
+
+#start{
+    width: 1280px;
+    height: 832px;
+    background-color: #4b4b4b;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#startLP{
+    position: absolute;
+    transform-origin: center center;
+    animation: startLpAni1 5s linear infinite;
+}
+.start-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 150;
+}
+#start p{
+    font-size: 40px;
+}
+#start h1{
+    font-size: 100px;
+    animation:  startColorChange 10s infinite linear;
+}
+#startBtn{
+    width: 200px;
+    height: 60px;
+    color: var(--white);
+    background-color: var(--gray1);
+    line-height: 60px;
+    border-radius: 30px;
+    font-weight: 700;
+    margin-top: 80px;
+    transition: all 0.3s ease-in-out;
+}
+#startBtn:hover{
+    background-color: var(--white);
+    color: var(--gray1);
+}
+@keyframes startLpAni1{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes startColorChange{
+    0% {
+        color: rgb(0, 255, 234);
+    }
+    20% {
+        color: #ffab4b;
+    }
+    40% {
+        color: #4bdeff;
+    }
+    60% {
+        color: rgb(182, 99, 255);
+    }
+    80% {
+        color: #ffd52f;
+    }
+    100% {
+        color: pink;
+    }
+}
+
+
+#backgroundLight{
+    position: absolute;
+    bottom: -280px;
+    right: -180px;
+    opacity: 1;
+    visibility: visible;
+    transition: ease 1s;
+}
+#backgroundLight.play{
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 0s;
+}
+#stage{
+    position: absolute;
+    bottom: -42px;
+    right: 72px;
+}
+#Character{
+    position: absolute;
+    bottom: 0px;
+    right: 68px;
+}
+.current-eyebrow{
+    position: absolute;
+    top: 224px;
+    left: 846px;
+}
+.current-eye{
+    position: absolute;
+    top: 262px;
+    left: 846px;
+}
+.current-mouth{
+    position: absolute;
+    top: 340px;
+    left: 846px;
+}
+
+
+#light{
+    position: absolute;
+    top: 0;
+    right: 64px;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+#light.play{
+    opacity: 1;
+    visibility: visible;
+    transition: ease 2s;
+}
+
+
+#LpImg{
+    position: absolute;
+    right: -296px;
+    transform: scale(0.4);
+    transform-origin: right top;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+#LpImg.play{
+    position: absolute;
+    right: -350px;
+    transform: scale(1);
+}
+#LpFaceImg{
+    position: absolute;
+    left: -1380px;
+    transform-origin: left top;
+    transition: all 0.3s ease;
+}
+#LpFaceImg.play{
+    position: absolute;
+    left: -296px;
+    transform: scale(0.4);
+}
+#LpImgRotate{
+    position: absolute;
+    right: -350px;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+}
+#LpImgRotate.play{
+    opacity: 1;
+    visibility: visible;
+    transition: ease 0s;
+}
+#backColor{
+    position: absolute;
+    top: -130px;
+    right: -130px;
+    opacity: 1;
+    visibility: visible;
+    transition: ease 1s;
+}
+#backColor.play{
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 0s;
+
+}
+
+
+#chooseSection{
+    position: absolute;
+    left: -360px;
+    top: calc(50% - 315px);
+    opacity: 1;
+    visibility: visible;
+    transition: ease 2s;
+}
+#chooseSection.play{
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 0s;
+}
+.LpChooseImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.LpSectionImg{
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+.LpSectionImgHover{
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+
+.secFace{
+    opacity: 1;
+    visibility: visible;
+    transition: ease 2s;
+    cursor: pointer;
+}
+.secFace.play{
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 0s;
+}
+.secEyebrow{
+    position: absolute;
+    left: 40px;
+    top: 156px;
+}
+.secEye{
+    position: absolute;
+    left: 156px;
+    top: calc(50% - 48px);
+}
+.secMouth{
+    position: absolute;
+    left: 40px;
+    bottom: 156px;
+}
+
+
+.face.play{
+    display: none;
+}
+.face{
+    cursor: pointer;
+    transform-origin: center center;
+    opacity: 0;
+}
+.face.picked{
+    animation: pickface 0.8s linear infinite;
+}
+.face.play{
+    display: none;
+}
+.cloneEdd{
+    animation: pickface 0.8s linear infinite;
+}
+@keyframes pickface{
+    0%{
+        transform:  rotate(0deg);
+    }
+    30%{
+        transform:  rotate(-10deg);
+    }
+    70%{
+        transform:  rotate(10deg);
+    }
+    100%{
+        transform:  rotate(0deg);
+    }
+}
+#faceItemsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1380px;
+    width: 1380px;
+    margin-left: -1280px;
+
+}
+.face-items {
+    position: relative;
+}
+.face-items li {
+    position: absolute;
+}
+.face-items img {
+    z-index: 15;
+    width: 197px;
+    display: block;
+    cursor: pointer;
+    transform-origin: center;
+}
+.ring-display{
+    box-sizing: none;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-32deg);
+    position: relative;
+}
+.star{
+    pointer-events: none;
+}
+
+
+#MusicInfo {
+    position: absolute;
+    z-index: 3;
+    color: var(--white);
+    left: 314px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+}
+#MusicInfo img{
+    cursor: pointer;
+}
+#MusicInfo.play {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: ease-in-out 0.8s;
+}
+#MusicInfo h2{
+    font-size: 48px;
+}
+#MusicInfo p{
+    font-size: 40px;
+}
+#MusicPlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
+}
+#MusicBar{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 240px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #c0c0c0;
+    margin-top: 28px;
+}
+#MusicProgress{
+    position: absolute;
+    width: 120px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+}
+#MusicCircle{
+    background-color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+}
+
+
+#playBtn{
+    position: absolute;
+    top: 96px;
+    right: 96px;
+    z-index: 10;
+    cursor: pointer;
+}
+#playBtn.play{
+    display: none;
+}
+#stopBtn{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    display: none;
+    z-index: 10;
+    cursor: pointer;
+}
+#stopBtn.play{
+    display: block;
+}
+
+
+#volumIcon{
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    opacity: 0;
+    visibility: hidden;
+}
+#volumIcon.play{
+    opacity: 1;
+    visibility: visible;
+    transition: ease-in-out 0.8s;
+}
+#rangeContainer {
+    position: absolute;
+    left: 0;
+    bottom: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+#rangeContainer.play{
+    opacity: 1;
+    visibility: visible;
+    transition: ease-in-out 0.8s;
+}
+#volumRange {
+    -webkit-appearance: none;
+
+    width: 132px;
+    transform: rotate(-90deg);
+
+    height: 8px;
+    border-radius: 4px;
+    background: var(--white);
+    outline: none;
+}
+#volumRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gray1);
+    cursor: pointer;
+}
+#volumRange::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gray1);
+    cursor: pointer;
+}
+
+
+/* 팝업 창*/
+#popup {
+    position: absolute;
+    width: 100%;
+    height: 832px;  
+    display: none;
+    padding: 48px;
+    background-color: #F5F5F5;
+    z-index: 1000;
+}
+#popup h2{
+    margin-top: 120px;
+    margin-bottom: 80px;
+    margin-left: 72px;
+    font-size: 28px;
+}
+#openPopup{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    cursor: pointer;
+}
+#closePopup {
+    cursor: pointer;
+    position: absolute;
+    right: 48px;
+}
+.image-container{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    margin-left: 72px;
+}
+.image-container-item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.instruction{
+    font-size: 18px;
+}
+.popupNum{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaApp</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1 id="title">Choose the face and listen to the music!</h1>
+
+    <div id="content">
+        <div id="start">            
+            <img id="startLP" src="images/LPImg.png" alt="#">
+
+            <div class="start-container">
+                <p>How Do You Feel?</p>
+                <h1>Dancing Chameleon</h1>
+                <p id="startBtn">START</p>
+            </div>
+        </div>
+
+        <div class="removeRect removeRect1"></div>
+        <div class="removeRect removeRect2"></div>
+
+
+        <svg id="backColor" width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle id="backFill" cx="130" cy="130" r="130" fill="#FFBCB3"/>
+        </svg>
+        <svg id="light" width="552" height="496" viewBox="0 0 552 496" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M345 0H207L0 496H552L345 0Z" fill="url(#paint0_linear_314_111)"/>
+            <defs>
+                <linearGradient id="paint0_linear_314_111" x1="276" y1="0" x2="276" y2="496" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFC803"/>
+                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <img id="backgroundLight" src="images/backgroundLight.png" alt="#">
+        <img id="stage" src="images/stage.png" alt="#">
+        <img id="Character" src="images/character.png" alt="#" width="560px">
+        <li class="current-eyebrow"><img src="images/eyebrow1.png" alt="#" width="172px"></li>
+        <li class="current-eye"><img src="images/eye1.png" alt="#" width="172px"></li>
+        <li class="current-mouth"><img src="images/mouth1.png" alt="#" width="172px"></li>
+
+        <img id="LpImgRotate" src="images/LPImg.png" alt="#">
+        <img id="LpImg" src="images/LPImg.png" alt="#">
+        <svg id="LpFaceImg" width="1380" height="1380" viewBox="0 0 1380 1380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="LpFaceColor" fill-rule="evenodd" clip-rule="evenodd" d="M690 1380C1071.08 1380 1380 1071.08 1380 690C1380 308.924 1071.08 0 690 0C308.924 0 0 308.924 0 690C0 1071.08 308.924 1380 690 1380ZM690 1005.43C864.206 1005.43 1005.43 864.427 1005.43 690.493C1005.43 516.559 864.206 375.557 690 375.557C515.794 375.557 374.571 516.559 374.571 690.493C374.571 864.427 515.794 1005.43 690 1005.43Z" fill="#ECECEC"/>
+        </svg>
+
+        <div id="chooseSection">
+            <img class="LpChooseImg" src="images/LP_face_select.png" alt="#">
+            <img class="LpChooseImg LpSectionImgHover" src="images/LP_face_section_hover.png" alt="">
+            <img class="LpChooseImg LpSectionImg" src="images/LP_face_section.png" alt="">
+        </div>
+
+        <div id="faceItemsContainer">
+            <div class="ring-display">
+                <ul class="face-items">
+                        <li class="face eye eye1"><img src="images/eye1.png" alt="#"></li>
+                        <li class="face eye eye2"><img src="images/eye2.png" alt="#"></li>
+                        <li class="face eye eye3"><img src="images/eye3.png" alt="#"></li>
+                        <li class="face star"><img src="images/star.png" alt="#"></li>
+                        <li class="face mouth mouth1"><img src="images/mouth1.png" alt="#"></li>
+                        <li class="face mouth mouth2"><img src="images/mouth2.png" alt="#"></li>
+                        <li class="face mouth mouth3"><img src="images/mouth3.png" alt="#"></li>
+                        <li class="face star"><img src="images/star.png" alt="#"></li>
+                        <li class="face eyebrow eyebrow1"><img src="images/eyebrow1.png" alt="#"></li>
+                        <li class="face eyebrow eyebrow2"><img src="images/eyebrow2.png" alt="#"></li>
+                        <li class="face eyebrow eyebrow3"><img src="images/eyebrow3.png" alt="#"></li>
+                        <li class="face star"><img src="images/star.png" alt="#"></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="MusicInfo">
+            <h2>MUSIC TITILE</h2>
+            <p>artist</p>
+            <div id="MusicPlay">
+                <img id="MusicM10" src="images/10-.png" alt="#">
+                <img id="MusicPlayBtn" src="images/playBtn.png" alt="#">
+                <img id="MusicP10" src="images/10+.png" alt="#">
+            </div>
+            <div id="MusicBar">
+                <div id="MusicProgress"></div>
+                <div id="MusicCircle"></div>
+            </div>
+        </div>
+
+        <img id="playBtn" src="images/listenMusic.png" alt="#">
+        <img id="stopBtn" src="images/chooseFace.png" alt="#">
+
+        <img class="secFace secEyebrow" src="images/sec_eyebrow.png" alt="#">
+        <img class="secFace secEye" src="images/sec_eye.png" alt="#">
+        <img class="secFace secMouth" src="images/sec_mouth.png" alt="#">
+
+        <div id="rangeContainer">
+            <input id="volumRange" type="range">
+        </div>
+        <img id="volumIcon" src="images/volum.png" alt="#">
+
+        <img id="openPopup" src="images/help.png" alt="#">
+        <div id="popup">
+            <img id="closePopup" src="images/close.png" alt="#">
+            <h2><b>사용방법</b></h2>
+
+            <div class="image-container">
+                <div class="image-container-item">
+                    <img class="popupNum" src="images/helpNumber1.png" alt="#" width="32px">
+                    <img src="images/helpImg1.png" alt="#" width="290px">
+                    <div class="instruction"><b>카테고리를 선정 후 <br>알맞은 위치에 표정을 채워주세요.</b></div>
+                </div>
+                <div class="image-container-item">
+                    <img class="popupNum" src="images/helpNumber2.png" alt="#" width="32px">
+                    <img src="images/helpImg2.png" alt="#" width="290px">
+                    <div class="instruction"><b>오른쪽 상단의 레코드판을<br>눌러주세요.</b></div>
+                </div>
+                <div class="image-container-item">
+                    <img class="popupNum" src="images/helpNumber3.png" alt="#" width="32px">
+                    <img src="images/helpImg3.png" alt="#" width="290px">
+                    <div class="instruction"><b>표정을 재설정 하고 싶다면<br>왼쪽 상단의 레코드판을 눌러주세요.</b></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
